@@ -41,6 +41,18 @@ API specification is available at:
 
 
 ## cURLS:
+# Exitoso: 
+curl --location 'http://localhost:8083/api/signup' \
+--header 'Content-Type: application/json' \
+--header 'x-request-id: 11111111-1111-1111-1111-111111111111' \
+--data-raw '{
+    "email": "daniela1@google.com",
+    "password": "supersegura"
+}'
+<img width="809" height="219" alt="image" src="https://github.com/user-attachments/assets/fe51aaec-d7bc-444a-8796-c3dcd980a52f" />
+
+# Email duplicado
+
 curl --location 'http://localhost:8083/api/signup' \
 --header 'Content-Type: application/json' \
 --header 'x-request-id: 11111111-1111-1111-1111-111111111111' \
@@ -49,8 +61,41 @@ curl --location 'http://localhost:8083/api/signup' \
     "password": "supersegura"
 }'
 
-
 # Answer:
 <img width="802" height="308" alt="image" src="https://github.com/user-attachments/assets/163d5632-f341-4e7b-a17b-bf920eb656d7" />
+
+# Sesión exitosa
+curl --location 'http://localhost:8083/api/signin' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "daniela@google.com",
+    "password": "supersegura"
+}'
+
+# Answer: 
+<img width="808" height="252" alt="image" src="https://github.com/user-attachments/assets/61b11799-eaa1-41ed-8b7d-34878b945aa2" />
+
+# Sesion Email no existe
+curl --location 'http://localhost:8083/api/signin' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "pepito@google.com",
+    "password": "supersegura"
+}'
+
+# Answer:
+<img width="821" height="304" alt="image" src="https://github.com/user-attachments/assets/fcaee0a1-0d04-467d-956d-21a06db2c951" />
+
+# Sesión password incorrecta
+curl --location 'http://localhost:8083/api/signin' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "daniela@google.com",
+    "password": "password1"
+}'
+
+# Answer: 
+<img width="809" height="324" alt="image" src="https://github.com/user-attachments/assets/711ed6fc-5cb5-4e0c-b784-0bac7452001e" />
+
 
 
