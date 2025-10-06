@@ -38,3 +38,19 @@ This service follows the Programming Manifesto and the acceptance criteria of th
 ## 📑 Documentation
 
 API specification is available at:  
+
+
+## cURLS:
+curl --location 'http://localhost:8083/api/signup' \
+--header 'Content-Type: application/json' \
+--header 'x-request-id: 11111111-1111-1111-1111-111111111111' \
+--data-raw '{
+    "email": "daniela@google.com",
+    "password": "supersegura"
+}'
+
+
+# Answer:
+<img width="802" height="308" alt="image" src="https://github.com/user-attachments/assets/163d5632-f341-4e7b-a17b-bf920eb656d7" />
+
+
