@@ -38,6 +38,9 @@ defmodule AuthApi.Application do
   end
 
   def env_children(_other_env, _config) do
-    []
+    [
+      AuthApi.Infrastructure.DrivenAdapters.InMemoryUsers.InMemoryUsersRepository,
+      AuthApi.Infrastructure.DrivenAdapters.Sessions.Memory.InMemorySessionsRepository
+    ]
   end
 end

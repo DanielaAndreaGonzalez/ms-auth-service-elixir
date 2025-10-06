@@ -10,7 +10,10 @@ defmodule AuthApi.Infrastructure.EntryPoint.ApiRest do
 
   plug(CORSPlug,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    origin: [~r/.*/],
+    # Avoid using a compiled regex here because it contains an internal
+    # Erlang reference which cannot be Macro.escaped at compile time. Use
+    # a simple wildcard string origin which CORSPlug accepts.
+    origin: ["*"],
     headers: ["Content-Type", "Accept", "User-Agent"]
   )
 
@@ -33,6 +36,14 @@ defmodule AuthApi.Infrastructure.EntryPoint.ApiRest do
 
   get "/api/hello" do
     build_response("Hello World", conn)
+  end
+
+  post "/api/signup" do
+    AuthApi.Infrastructure.EntryPoints.ReactiveWeb.Application.SignupHandler.signup(conn, conn.body_params)
+  end
+
+  post "/api/signin" do
+    AuthApi.Infrastructure.EntryPoints.ReactiveWeb.Application.SigninHandler.signin(conn, conn.body_params)
   end
 
   def build_response(%{status: status, body: body}, conn) do
