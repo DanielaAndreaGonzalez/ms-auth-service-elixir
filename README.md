@@ -37,7 +37,7 @@ This service follows the Programming Manifesto and the acceptance criteria of th
 
 ## 📑 Documentation
 
-API specification is available at:  
+
 
 
 ## cURLS:
